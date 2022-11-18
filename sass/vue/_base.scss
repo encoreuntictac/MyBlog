@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+:where(.base.container) {
+
+}
+.base {
+    :where(&.container) {
+        gap: 5rem;
+        border-radius: 20px;
+        border: 10px solid;
+    }
+    :where(.wrapper) {
+        display: flex;
+        gap: 2rem;
+    }
+}
+.sidebar {
+    display: flex;
+    flex-flow: column;
+    gap: 2.5rem;
+
+    :where(.sidebar-top) {
+        text-align: center;
+        height: 100px;
+    }
+    :where(h3) {
+        line-height: 1.122;
+        padding: 1rem 0;
+    }
+    :where(div:last-of-type) {
+        display: flex;
+        flex-flow: column;
+        gap: .5rem;
+    }
+    :where(p) {
+        border-radius: 10px;
+        letter-spacing: 1px;
+        overflow:hidden;
+    }
+    :where(p:hover) {
+        text-transform: uppercase;
+        text-align: center;
+        border: solid 1px;
+    }
+}

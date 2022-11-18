@@ -1,0 +1,151 @@
+@charset "UTF-8";
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  /* Pour palier au problème qui surviens du top fixed et footer absolute */
+  position: relative;
+  min-height: 100vh;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body,
+p,
+ol,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  margin: 0;
+}
+
+button {
+  border-style: none;
+  background-color: transparent;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+:root {
+  --fd-sidebar: #323232;
+  --fd-sidebar-p: #3e3d3d;
+  --fd-general: #D4D4D4;
+  --fd-centent: #EEEEEE;
+  --cl-text-clair: #6E6E6E;
+  --cl-text-sombre: #323232;
+  --fd-100: black;
+  --fd-200: #D4D4D4;
+  --fd-300: #323232;
+  --fd-400: #3e3d3d;
+  --cl-clair: #6E6E6E;
+  --cl-jaune: #F6C90E;
+}
+
+:where(.base.container) {
+  gap: 5rem;
+  border-radius: 20px;
+  border: 10px solid;
+}
+.base :where(.wrapper) {
+  display: flex;
+  gap: 2rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-flow: column;
+  gap: 2.5rem;
+}
+.sidebar :where(.sidebar-top) {
+  text-align: center;
+  height: 100px;
+}
+.sidebar :where(h3) {
+  line-height: 1.122;
+  padding: 1rem 0;
+}
+.sidebar :where(div:last-of-type) {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+.sidebar :where(p) {
+  border-radius: 10px;
+  letter-spacing: 1px;
+  overflow: hidden;
+}
+.sidebar :where(p:hover) {
+  text-transform: uppercase;
+  text-align: center;
+  border: solid 1px;
+}
+
+:where(body) {
+  background-color: var(--fd-100);
+}
+
+:where(.base.container) {
+  background-color: var(--fd-200);
+  border-color: var(--fd-100);
+}
+
+:where(.sidebar) {
+  background-color: var(--fd-sidebar);
+  color: var(--cl-clair);
+}
+
+.sidebar :where(h1) {
+  color: var(--cl-jaune);
+}
+.sidebar :where(p) {
+  background-color: var(--fd-400);
+}
+.sidebar :where(p:hover) {
+  border-color: var(--cl-jaune);
+}
+
+:where(.base.container) {
+  height: 100vh;
+  width: 100vw;
+}
+.base :where(.wrapper) {
+  height: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  padding: 2rem;
+}
+.sidebar :where(h3) {
+  padding: 1rem 0;
+}
+.sidebar :where(p) {
+  padding: 1rem 2rem;
+}

@@ -1,0 +1,21 @@
+
+.base {
+    :where(&.container) {
+        height: 100vh;
+        width: 100vw;
+    }
+    :where(.wrapper) {
+        height: 100%;
+    }
+}
+.sidebar {
+    width: 250px;
+    padding: 2rem;
+
+    :where(h3) {
+        padding: 1rem 0;
+    }
+    :where(p) {
+        padding: 1rem 2rem;
+    }
+}

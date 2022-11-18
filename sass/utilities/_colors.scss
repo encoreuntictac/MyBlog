@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+:where(body) {
+    background-color: $background-general; 
+}
+:where(.base.container) {
+    background-color: $background-100;
+    border-color: $background-general;
+}
+:where(.sidebar) {
+    background-color: var(--fd-sidebar);
+    color: $clr-text-clair;
+}
+.sidebar {
+    :where(h1) {
+        color: $clr-link-100;
+    }
+    :where(p) {
+        background-color: $background-sidebar-p;
+    }
+    :where(p:hover) {
+        border-color: $clr-link-100;
+    }
+}

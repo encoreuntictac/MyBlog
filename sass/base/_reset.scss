@@ -1,0 +1,56 @@
+* {
+    &,
+    &::before,
+    &::after {
+      box-sizing: inherit;
+    }
+}
+
+body {
+    /* Pour palier au problème qui surviens du top fixed et footer absolute */
+    position: relative;
+    min-height: 100vh;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+html,
+body,
+p,
+ol,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  margin: 0;
+}
+button {
+  border-style: none;
+  background-color: transparent;
+}
+img {
+  height: auto;
+  width: 100%;
+}
