@@ -15,38 +15,38 @@
     </head>
 
     <body>
-        <section class="base container">
-            <div class="wrapper">
+        <section class="base">
+            <div class="container">
+            
+                <div class="wrapper">
 
-                <div class="sidebar">
-
-                    <div class="sidebar-top">
-                        <a href="#"><h1>Blog</h1></a>
+                    <div class="sidebar">
+                        <div class="sidebar__top">
+                            <div class="logo">
+                                <img src="{{ asset('images/contenu/blog.jpeg') }}">
+                            </div>
+                        </div>
+                        <div class="sidebar__bottom">
+                            <div>
+                                <h1>A</h1>
+                            </div>
+                        </div>
                     </div>
 
-                    <h3>Listes</h3>
-                    
-                    <div class="content">
-                    
-                        <p>test</p>
-                        <p>test</p>
-                        <p>test</p>
+                    <div class="box">
 
-                    </div>
-                </div>
+                        <div class="box-top">
 
-                <div class="box">
-                
-                    <div class="box-top">
-                    
-                    </div>
+                        </div>
 
-                    <div class="box-qst">
-                        {% block header %}{% endblock %}
-                    </div>
+                        <div class="box-qst">
+                            {% block header %}{% endblock %}
+                        </div>
 
-                    <div class="box-content">
-                        {% block body %}{% endblock %}
+                        <div class="box-content">
+                            {% block body %}{% endblock %}
+                        </div>
+
                     </div>
 
                 </div>

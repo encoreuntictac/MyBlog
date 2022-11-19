@@ -1,25 +1,12 @@
 :root {
-    --fd-sidebar: #323232;
-    --fd-sidebar-p: #3e3d3d;
-    --fd-general: #D4D4D4;
-    --fd-centent: #EEEEEE;
-    --cl-text-clair: #6E6E6E;
-    --cl-text-sombre: #323232;
-    
-    --fd-100: black;
-    --fd-200: #D4D4D4;
-    --fd-300: #323232;
-    --fd-400: #3e3d3d;
-    
-    --cl-clair: #6E6E6E;
-    --cl-jaune: #F6C90E;
+    --clr-black: black;
+    --clr-black-100: #332F2E;
+    --clr-white: white;
+    --clr-grey: #8C8C8C;
 }
 
-$background-general: var(--fd-100);
-$background-sidebar: var(--fd-100);
-$background-sidebar-p: var(--fd-400);
-$background-100: var(--fd-200);
+$bg-clr-black: var(--clr-black);
+$bg-clr-white: var(--clr-white);
+$bg-clr-100: var(--clr-black-100);
 
-$clr-text-clair: var(--cl-clair);
-
-$clr-link-100: var(--cl-jaune);
+$clr-text: var(--clr-grey);

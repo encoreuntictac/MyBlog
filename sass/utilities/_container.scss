@@ -1,21 +1,24 @@
-
 .base {
-    :where(&.container) {
-        height: 100vh;
-        width: 100vw;
+    :where(.container) {
+        width: 98.8vw;
+        height: 96.1vh;
+        padding: 10px;
     }
     :where(.wrapper) {
         height: 100%;
+        width: 100%;
     }
-}
-.sidebar {
-    width: 250px;
-    padding: 2rem;
-
-    :where(h3) {
-        padding: 1rem 0;
+    :where(.sidebar) {
+        height: 100%;
     }
-    :where(p) {
-        padding: 1rem 2rem;
+    :where(.sidebar__top) {
+        padding: 1.5rem;
+    }
+    :where(.sidebar__bottom) {
+        height: calc(100% - 92px);
+        padding: 1.5rem;
+    }
+    :where(.box) {
+        flex: auto;
     }
 }
