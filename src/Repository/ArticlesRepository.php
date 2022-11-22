@@ -39,15 +39,26 @@ class ArticlesRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAllYears($value)
+    public function findYears($value)
     {
         return $this->createQueryBuilder('a')
-        ->andWhere('a.date = :val')
+        ->andWhere('a.date LIKE :val')
         ->setParameter('val', $value.'%')
         ->orderBy('a.id', 'ASC')
         ->getQuery()
         ->getResult()
         ;
+    }
+    public function findByDescription($description)
+    {
+        return $this->createQueryBuilder('a')
+        ->andWhere('a.description like :description')
+        ->setParameter('description', '%'.$description.'%')
+        ->orderBy('a.id', 'ASC')
+        ->getQuery()
+        ->getResult()
+    ;
+
     }
 //    /**
 //     * @return Articles[] Returns an array of Articles objects

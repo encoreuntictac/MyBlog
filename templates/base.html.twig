@@ -16,7 +16,7 @@
 
     <body>
         <section class="base">
-            <div class="container">
+            <div class="container {% if app.request.attributes.get('_route') == 'edit_article' %}edit-page{% endif %}">
             
                 <div class="wrapper">
 
@@ -28,7 +28,9 @@
                                 </div>
                                 
                                 <div class="logo">
-                                    <div><img class="logo-img" src="{{ asset('images/contenu/blog.jpeg') }}"></div>
+                                    <div>
+                                        <a href="{{ path('show_home') }}"><img class="logo-img" src="{{ asset('images/contenu/blog.jpeg') }}"></a>
+                                    </div>
                                     <p>Blog</p>
                                 </div>
                             </div>
