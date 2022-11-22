@@ -1,9 +1,9 @@
 * {
-    &,
-    &::before,
-    &::after {
-      box-sizing: inherit;
-    }
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
 
 body {
@@ -46,11 +46,11 @@ input,
 select {
   margin: 0;
 }
-button {
-  border-style: none;
-  background-color: transparent;
-}
-img {
+// button {
+//   border-style: none;
+//   background-color: transparent;
+// }
+:where(img) {
   height: auto;
   width: 100%;
 }

@@ -1,0 +1,79 @@
+@use '../abstracts' as *;
+
+
+:where(.wrapper-articles) {
+    height: 100%;
+}
+:where(.wrapper-articles .topbar) {
+    display: flex;
+    height: 148.5px;
+    border-bottom: 1px solid black;
+    padding: 2.5rem;
+    gap: 2rem;
+}
+:where(.wrapper-articles .topbar .search) {
+    width: 20%;
+
+    :where(input[type="search"]) {
+        width: 100%;
+        border-radius: 20px;
+        border: solid 1px rgb(147, 142, 142);
+        padding: .5rem 1rem;
+    }
+}
+:where(.wrapper-articles .topbar .action) {
+    margin-left: auto;
+}
+
+:where(.wrapper-articles .main) {
+    background-color: rgba(196, 196, 196, 0.568);
+    padding: 2.5rem;
+    height: calc(100% - 148.5px);
+}
+:where(.wrapper-articles .main table) {
+    width: 100%;
+    border-spacing: 0;
+    text-align: left;
+}
+:where(.wrapper-articles .main th) {
+    background-color: $bg-clr-black;
+    color: $clr-text2;
+    padding: 1.5rem 1rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+:where(.wrapper-articles .main th:nth-child(2)) 
+{
+    :where(select)
+    {
+        border: none;
+        font-size: 16px;
+        color: white;
+        background-color: black;
+    }
+    
+}
+
+:where(.wrapper-articles .main td) {
+    background-color: $bg-clr-white;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.487);
+    padding: 1rem;
+
+    :where(a)
+    {
+        color: black;
+    }
+}
+:where(.wrapper-articles .main .btn-edit) {
+    margin: auto;
+    text-align: center;
+}
+:where(.wrapper-articles .main .btn-edit button) {
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: solid 1px black;
+    background-color: $clr-titre;
+    border-radius: 5px;
+    padding: .5rem 2rem;
+    margin: auto;
+    cursor: pointer;
+}

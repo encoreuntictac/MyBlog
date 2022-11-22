@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block body %}
+
+    <div class="resultat">
+
+        <div class="article">
+
+            <div class="article-titre"><h2>{{ articles.titre }}</h2></div>
+            <div class="article-img">
+                <img src="{{ asset('images/articles/name.jpeg')|replace({'name': articles.titre}) }}">
+            </div>
+
+            <div class="article-contenu">
+                {{ articles.description }}
+            </div>
+
+            <div class="article-info">
+                <p>Date de sorti : {{ articles.date|date("Y-m-d") }}</p>
+                <span>{{ articles.prix }} €</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

@@ -3,6 +3,7 @@
     --clr-black-100: #332F2E;
     --clr-white: white;
     --clr-grey: #8C8C8C;
+    --clr-jaune: #fff200;
 }
 
 $bg-clr-black: var(--clr-black);
@@ -10,3 +11,5 @@ $bg-clr-white: var(--clr-white);
 $bg-clr-100: var(--clr-black-100);
 
 $clr-text: var(--clr-grey);
+$clr-text2: var(--clr-white);
+$clr-titre: var(--clr-jaune);

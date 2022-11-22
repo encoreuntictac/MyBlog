@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block body %}
+
+<button id="myBtn">
+Modal
+</button>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="form-container">
+            {{ form_start(form) }}
+                {{ form_rest(form) }}
+                <button type="button" class="btn-edit">Save</button>
+            {{ form_end(form) }}
+        </div> 
+    <span class="close">&times;</span>
+    </div>
+</div>
+{% endblock %}

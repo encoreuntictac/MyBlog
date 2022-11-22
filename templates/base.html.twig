@@ -10,7 +10,7 @@
         {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            <script src="{{ asset('js/script.js') }}" defer></script>
         {% endblock %}
     </head>
 
@@ -20,16 +20,25 @@
             
                 <div class="wrapper">
 
-                    <div class="sidebar">
+                    <div class="sidebar" id="sidebar">
                         <div class="sidebar__top">
-                            <div class="logo">
-                                <img src="{{ asset('images/contenu/blog.jpeg') }}">
+                            <div class="content">
+                                <div class="btn-extend" id="btn-extend">
+                                    <img class="icone" src="{{ asset('images/contenu/fleche.png') }}">
+                                </div>
+                                
+                                <div class="logo">
+                                    <div><img class="logo-img" src="{{ asset('images/contenu/blog.jpeg') }}"></div>
+                                    <p>Blog</p>
+                                </div>
                             </div>
                         </div>
                         <div class="sidebar__bottom">
-                            <div>
-                                <h1>A</h1>
-                            </div>
+                            <div class="box-input">
+                                <div>
+                                    <h1>A</h1>
+                                </div>
+                            </div>  
                         </div>
                     </div>
 

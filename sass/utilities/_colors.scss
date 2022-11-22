@@ -7,21 +7,23 @@ body {
     :where(.container) {
         background-color: $bg-clr-white;
     }
-    :where(.sidebar) {
-
-    }
+}
+.sidebar.active {
     :where(.sidebar__top) {
-        background-color: $bg-clr-100;
-        :where(.logo) {
-            
+    
+        :where(p) {
+            color: $clr-titre;
         }
     }
-    :where(.sidebar__bottom) {
-        background-color: $bg-clr-black;
-        color: $clr-text;
+}
+:where(.sidebar__top) {
+    background-color: $bg-clr-100;
 
-        :where(div) {
-
-        }
+    :where(p) {
+        color: $bg-clr-100;
     }
+}
+:where(.sidebar__bottom) {
+    background-color: $bg-clr-black;
+    color: $clr-text;
 }
