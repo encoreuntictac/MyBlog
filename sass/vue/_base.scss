@@ -16,19 +16,23 @@
 }
 
 :where(.sidebar) {
-    // flex-basis: 20%;
+
     height: 100%;
     width: 250px;
     border-radius: 1rem;
     transition: width, overflow, .7s ease-in-out;
-
-    h2,
+    
+    h2, 
     .navbar-categ{
         overflow: hidden;
     }
 }
 :where(.sidebar.close) {
-    width: 80px;
+    width: 90px;
+    
+    .sidebar-top button {
+        transform: rotate(-180deg);
+    }
 }
 :where(.sidebar-top) {
     display: flex;
@@ -62,14 +66,11 @@
         top: 22px;
         width: 30px;
         height: 30px;
-        background-color: rgb(222, 215, 215);
         border: none;
         border-radius: 5px;
-        
+        transition: transform 0.5s ease;
     }
-
 }
-
 :where(.navbar) {
     display: flex;
     flex-flow: column;
@@ -81,13 +82,13 @@
         display: flex;
         flex-flow: column;
         transition: all 0.4 ease;
+        
     }
     :where(img) {
         display: flex;
         width: 20px;
-        
     }
-    :where(.rotate) {
+    :where(.navbar__item.rotate .navbar-categ img) {
         transform: rotate(-180deg);
     }
     :where(#btn-navbar) {
@@ -97,14 +98,19 @@
         position: relative;
         display: flex;
         gap: 1rem;
-        padding: 1rem 1.5rem;
+        padding: 1rem 2rem;
         transition: background-color .4s ease;
+        
     }
     :where(.navbar-categ) {
         display: flex;
         flex: auto;
         justify-content: space-between;
         transition: all .7s ease;
+
+        :where(a) {
+            color: white;
+        }
     }
     :where(#navbar-sub) {
         :where(span:first-child) {
@@ -115,28 +121,38 @@
         display: flex;
         flex-flow: column;
         gap: .5rem;
-        padding-left: 3.8rem;
-        display: none;
-        
+        padding-left: 4.8rem;
+        transition: all 0.4s ease-in-out;
+        overflow: hidden;
+        max-height: 0;
 
-        :where(span) {
+        :where(span, a) {
             opacity: 0.6;
             transition: opacity .4s ease;
+            font-size: .8rem;
+            padding-top: 1rem;
+            padding-bottom: .5rem;
         }
-        :where(span:hover) {
+        :where(span:last-child) {
+            padding-top: .5rem;
+            padding-bottom: 1rem;
+        }
+        :where(span:hover, a:hover) {
             opacity: 1;
         }
+        :where(a) {
+            color: white; 
+        }
+
     }
     :where(.navbar-sub span:hover) {
         opacity: 1;
-
     }
 
     // .navbar-sub:not(:has(> span:nth-child(2))) { /* Jolie */
     //     display: none;
     // }
 }
-
 :where(.navbar.close) {
     :where(.navbar-sub) {
         display: flex;
@@ -148,8 +164,12 @@
         transition: top .3s ease;
         opacity: 0;
         pointer-events: none;
-        
+        max-height: 100px;
 
+
+        :where(span) {
+            padding: 0;
+        }
     }
     :where(.navbar__content:first-child) {
         :where(.navbar-sub) {
@@ -157,7 +177,6 @@
             opacity: 0;
             pointer-events: auto;
         }
-
     }
 
     :where(.navbar__content:hover) {
@@ -167,9 +186,59 @@
             pointer-events: auto;
         }
     }
+
+    :where(#navbar-sub) {
+        :where(span:first-child) {
+            display: block;
+            opacity: 1;
+            font-size: 1rem;
+        }
+    }
 }
 :where(.navbar) {
     .navbar-sub.show-menu {
         display: flex;
+        max-height: 300px;
     }
+    :where(.navbar-sub){
+        display: none;
+    }
+}
+:where(.navbar.close) {
+    :where(.navbar-sub) {
+        display: flex;
+    }
+}
+
+:where(.main) {
+    width: 100%;
+
+    :where(& > .container) {
+        height: 100%;
+        // border: solid 1px red;
+        padding: 0 2rem;
+    }
+}
+:where(.main-top) {
+    height: 75px;
+    // border: solid 1px;
+
+    :where(.container) {
+        height: 100%;
+    }
+}
+:where(.main-content) {
+    height: calc(100% - 150px);
+    // border: solid 1px rgb(153, 81, 255);
+
+
+    :where(.main-content .container) {
+        border-radius: 5px;
+        height: 100%;
+    }
+}
+:where(.main-footer) {
+    height: 75px;
+    // border: solid 1px rgb(149, 1, 18);
+
 }

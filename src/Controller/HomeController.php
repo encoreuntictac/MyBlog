@@ -56,6 +56,14 @@ class HomeController extends AbstractController
         $this->repository = $repository;
     } */
 
+    #[Route('/dashboard', name: 'show_dashboard')]
+    public function dashboard(): Response
+    {
+        return $this->render('home/index.html.twig', [
+
+        ]);
+    }
+
     #[Route('/home', name: 'show_home')]
     public function index(EntityManagerInterface $entityManager): Response
     {
@@ -64,66 +72,20 @@ class HomeController extends AbstractController
 
         
         $tab = $this->listYears(2000, 30);
-        return $this->render('home/index.html.twig', [
+        return $this->render('home/home.html.twig', [
             'articles' => $articles,
-            'annee' => $tab,
+            'options' => $tab,
         ]);
     }
-
-    /* #[Route('/home{year}', name: 'show_articleByYear')]
-    public function show_articleByYear($year, EntityManagerInterface $entityManager): Response
-    {
-        $repository = $entityManager->getRepository(Articles::class);
-        $articles = $repository->findYears($year);
-
-        $tab = $this->listYears(2000, 30);
-        return $this->render('home/index.html.twig', [
-            'articles' => $articles,
-            'annee' => $tab,
-        ]);
-    } 
-
-    #[Route('/home/year/', name: 'selectYear', methods:"POST")]
-    public function selectYear(EntityManagerInterface $entityManager, Request $request): Response
-    {
-        $annee = $request->request->get('annee');
-
-        return $this->redirectToRoute('show_articleByYear', [
-            'year' => $annee,
-        ]);
-    }
-    #[Route('/home/{search}', name: 'show_search')]
-    public function show_search($search, EntityManagerInterface $entityManager): Response
-    {
-        // dd($search);
-        $repository = $entityManager->getRepository(Articles::class);
-        $articles = $repository->findByDescription($search);
-        // dd($articles[0]);
-
-        return $this->render('home/show_search.html.twig', [
-            'articles' => $articles[0],
-        ]);
-    }
-
-    #[Route('/home/search/', name: 'search', methods:"POST")]
-    public function search(EntityManagerInterface $entityManager, Request $request): Response
-    {
-        $search = $request->request->get('search');
-        // dd($search);
-        return $this->redirectToRoute('show_search', [
-            'search' => $search,
-        ]);
-    }
-    
 
     #[Route('/home/{id}', name: 'show_article')]
     public function show(Articles $articles): Response
     {
-        dd('test');
         return $this->render('home/show.html.twig', [
             'articles' => $articles,
         ]);
     }
+
 
     #[Route('/home/articles/{titre}-{id}', name: 'edit_article')]
     public function editArticle(Articles $articles, Request $request, EntityManagerInterface $entityManager): Response
@@ -142,7 +104,8 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/home/articles/create', name: 'new_article')]
+
+    #[Route('/home/articles/create', name: 'create_article')]
     public function newArticle(Request $request, EntityManagerInterface $entityManager): Response
     {
         $articles = new Articles();
@@ -155,20 +118,50 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('show_home');
         }
 
-        return $this->render('home/new.article.html.twig', [
+        return $this->render('home/create.article.html.twig', [
             'articles' => $articles,
             'form' => $form->createView(),
         ]);
-    } */
+    }
 
-   /*  #[Route('/home/articles/year/{year}', name: 'year_article')]
-    public function year(Request $request, EntityManagerInterface $entityManager): Response
+
+    #[Route('/home/year/', name: 'selectYear', methods:"POST")]
+    public function selectYear(EntityManagerInterface $entityManager, Request $request): Response
     {
-        $test = $request;
-        return $this->render('home/year.article.html.twig', [
-            'test' => $test,
+        $year = $request->request->get('year');
+        // dd($year);
+        return $this->redirectToRoute('show_articleByYear', [
+            'year' => $year,
         ]);
-    } */
+    }
+    #[Route('/home{year}', name: 'show_articleByYear')]
+    public function show_articleByYear($year, EntityManagerInterface $entityManager): Response
+    {
+        $repository = $entityManager->getRepository(Articles::class);
+        $articles = $repository->findYears($year);
+        // dd($articles);
+        $tab = $this->listYears(2000, 30);
+        return $this->render('home/year.article.html.twig', [
+            'articles' => $articles,
+            'options' => $tab,
+        ]);
+    }
+
+
+    #[Route('/home/search/', name: 'search', methods:"POST")]
+    public function search(EntityManagerInterface $entityManager, Request $request): Response
+    {
+        $search = $request->request->get('search');
+        // dd($search);
+
+        $repository = $entityManager->getRepository(Articles::class);
+        $articles = $repository->findByDescription($search); 
+        // dd($articles);
+
+        return $this->render('home/show_search.html.twig', [
+            'articles' => $articles[0],
+        ]);
+    }
 
     public function listYears($year, $nbr) 
     {

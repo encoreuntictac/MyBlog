@@ -79,7 +79,10 @@ select {
 }
 
 :where(.sidebar.close) {
-  width: 80px;
+  width: 90px;
+}
+:where(.sidebar.close) .sidebar-top button {
+  transform: rotate(-180deg);
 }
 
 :where(.sidebar-top) {
@@ -113,9 +116,9 @@ select {
   top: 22px;
   width: 30px;
   height: 30px;
-  background-color: rgb(222, 215, 215);
   border: none;
   border-radius: 5px;
+  transition: transform 0.5s ease;
 }
 
 :where(.navbar) {
@@ -134,7 +137,7 @@ select {
   display: flex;
   width: 20px;
 }
-:where(.navbar) :where(.rotate) {
+:where(.navbar) :where(.navbar__item.rotate .navbar-categ img) {
   transform: rotate(-180deg);
 }
 :where(.navbar) :where(#btn-navbar) {
@@ -144,7 +147,7 @@ select {
   position: relative;
   display: flex;
   gap: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 1rem 2rem;
   transition: background-color 0.4s ease;
 }
 :where(.navbar) :where(.navbar-categ) {
@@ -153,6 +156,9 @@ select {
   justify-content: space-between;
   transition: all 0.7s ease;
 }
+:where(.navbar) :where(.navbar-categ) :where(a) {
+  color: white;
+}
 :where(.navbar) :where(#navbar-sub) :where(span:first-child) {
   display: none;
 }
@@ -160,15 +166,27 @@ select {
   display: flex;
   flex-flow: column;
   gap: 0.5rem;
-  padding-left: 3.8rem;
-  display: none;
+  padding-left: 4.8rem;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+  max-height: 0;
 }
-:where(.navbar) :where(.navbar-sub) :where(span) {
+:where(.navbar) :where(.navbar-sub) :where(span, a) {
   opacity: 0.6;
   transition: opacity 0.4s ease;
+  font-size: 0.8rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
-:where(.navbar) :where(.navbar-sub) :where(span:hover) {
+:where(.navbar) :where(.navbar-sub) :where(span:last-child) {
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+:where(.navbar) :where(.navbar-sub) :where(span:hover, a:hover) {
   opacity: 1;
+}
+:where(.navbar) :where(.navbar-sub) :where(a) {
+  color: white;
 }
 :where(.navbar) :where(.navbar-sub span:hover) {
   opacity: 1;
@@ -184,6 +202,10 @@ select {
   transition: top 0.3s ease;
   opacity: 0;
   pointer-events: none;
+  max-height: 100px;
+}
+:where(.navbar.close) :where(.navbar-sub) :where(span) {
+  padding: 0;
 }
 :where(.navbar.close) :where(.navbar__content:first-child) :where(.navbar-sub) {
   top: 5px;
@@ -195,9 +217,49 @@ select {
   opacity: 1;
   pointer-events: auto;
 }
+:where(.navbar.close) :where(#navbar-sub) :where(span:first-child) {
+  display: block;
+  opacity: 1;
+  font-size: 1rem;
+}
 
 :where(.navbar) .navbar-sub.show-menu {
   display: flex;
+  max-height: 300px;
+}
+:where(.navbar) :where(.navbar-sub) {
+  display: none;
+}
+
+:where(.navbar.close) :where(.navbar-sub) {
+  display: flex;
+}
+
+:where(.main) {
+  width: 100%;
+}
+:where(:where(.main) > .container) {
+  height: 100%;
+  padding: 0 2rem;
+}
+
+:where(.main-top) {
+  height: 75px;
+}
+:where(.main-top) :where(.container) {
+  height: 100%;
+}
+
+:where(.main-content) {
+  height: calc(100% - 150px);
+}
+:where(.main-content) :where(.main-content .container) {
+  border-radius: 5px;
+  height: 100%;
+}
+
+:where(.main-footer) {
+  height: 75px;
 }
 
 .base .edit-page {
@@ -267,73 +329,108 @@ select {
   --clr-jaune: #fff200;
 }
 
-:where(.wrapper-articles) {
+:where(.main-content .container) {
+  overflow: hidden;
+}
+:where(.main-content .container) iframe {
+  width: 100%;
+  height: 110%;
+}
+
+:where(.home-header) {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  align-items: center;
   height: 100%;
 }
-
-:where(.wrapper-articles .topbar) {
+:where(.home-header) :where(div) {
   display: flex;
-  height: 148.5px;
-  border-bottom: 1px solid black;
-  padding: 2.5rem;
   gap: 2rem;
 }
-
-:where(.wrapper-articles .topbar .search) {
-  width: 20%;
+:where(.home-header) :where(.form-search) {
+  display: flex;
+  gap: 1rem;
 }
-:where(.wrapper-articles .topbar .search) :where(input[type=search]) {
-  width: 100%;
-  border-radius: 20px;
-  border: solid 1px rgb(147, 142, 142);
-  padding: 0.5rem 1rem;
-}
-
-:where(.wrapper-articles .topbar .action) {
-  margin-left: auto;
-}
-
-:where(.wrapper-articles .main) {
-  background-color: rgba(196, 196, 196, 0.568);
-  padding: 2.5rem;
-  height: calc(100% - 148.5px);
-}
-
-:where(.wrapper-articles .main table) {
-  width: 100%;
-  border-spacing: 0;
-  text-align: left;
-}
-
-:where(.wrapper-articles .main th) {
-  background-color: var(--clr-black);
-  color: red;
-  padding: 1.5rem 1rem;
-  font-family: "Times New Roman", Times, serif;
-}
-
-:where(.wrapper-articles .main th:nth-child(2)) :where(select) {
+:where(.home-header) :where(select) {
+  border-radius: 5px;
+  padding: 0.5rem;
   border: none;
-  font-size: 16px;
   color: white;
   background-color: black;
 }
+:where(.home-header) :where(.btn-search) {
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  border: none;
+  color: white;
+  background-color: black;
+}
+:where(.home-header) :where(.btn-add) {
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  color: white;
+  background-color: rgb(0, 0, 0);
+}
+:where(.home-header) :where(.btn-add) :where(a) {
+  color: white;
+}
+:where(.home-header) :where(.btn-select) {
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  color: rgb(0, 0, 0);
+  background-color: var(--clr-jaune);
+}
+:where(.home-header) :where(input[type=search]) {
+  border-radius: 20px;
+  border: solid 1px rgb(147, 142, 142);
+  padding: 0.5rem 1rem;
+  width: 250px;
+}
 
-:where(.wrapper-articles .main td) {
-  background-color: var(--clr-white);
-  border-bottom: 1px solid rgba(128, 128, 128, 0.487);
+:where(.home-body) {
+  height: 100%;
   padding: 1rem;
 }
-:where(.wrapper-articles .main td) :where(a) {
+:where(.home-body) :where(table) {
+  width: 100%;
+  color: white;
+  border-radius: 1rem 1rem 0 0;
+  border-spacing: 0;
+}
+:where(.home-body) :where(thead) {
+  background-color: black;
+  color: rgb(255, 255, 255);
+  text-align: left;
+}
+:where(.home-body) :where(thead) :where(th) {
+  padding: 0.5rem 1rem;
+}
+:where(.home-body) :where(thead) :where(th:first-child) {
+  border-radius: 1rem 0 0 0;
+}
+:where(.home-body) :where(thead) :where(th:last-child) {
+  text-align: center;
+  border-radius: 0 1rem 0 0;
+}
+:where(.home-body) :where(tbody) {
+  background-color: white;
   color: black;
 }
-
-:where(.wrapper-articles .main .btn-edit) {
-  margin: auto;
-  text-align: center;
+:where(.home-body) :where(tbody) :where(td) {
+  padding: 1rem;
+  border-bottom: 1px rgba(128, 128, 128, 0.505) solid;
 }
-
-:where(.wrapper-articles .main .btn-edit button) {
+:where(.home-body) :where(tbody) :where(td:first-child) {
+  border-left: 1px rgba(128, 128, 128, 0.505) solid;
+}
+:where(.home-body) :where(tbody) :where(td:last-child) {
+  width: 260px;
+  border-right: 1px rgba(128, 128, 128, 0.505) solid;
+}
+:where(.home-body) :where(tbody) :where(.btn-edit) {
   font-weight: 600;
   letter-spacing: 1px;
   border: solid 1px black;
@@ -342,6 +439,19 @@ select {
   padding: 0.5rem 2rem;
   margin: auto;
   cursor: pointer;
+}
+:where(.home-body) :where(tbody) :where(.btn-delete) {
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: solid 1px black;
+  background-color: #99001C;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  margin: auto;
+  cursor: pointer;
+}
+:where(.home-body) :where(tbody) a {
+  color: black;
 }
 
 :where(.resultat) {
@@ -410,12 +520,15 @@ select {
   border-color: var(--clr-black);
 }
 :where(:where(.page-base) > .container) {
-  background-color: var(--clr-white);
+  background-color: #D9D9D9;
 }
 
 :where(.sidebar-top) :where(.sidebar-logo) {
   background-color: var(--clr-black-2);
   color: var(--clr-jaune);
+}
+:where(.sidebar-top) :where(button) {
+  background-color: #999999;
 }
 
 :where(.navbar) {
@@ -429,3 +542,36 @@ select {
 :where(.navbar) :where(.navbar-sub) {
   background-color: var(--clr-black-2);
 }
+
+:where(.main-content .container) {
+  background-color: var(--clr-white);
+}
+
+/* {% block body %}
+
+<main class="wrapper-articles">
+    <section class="topbar">
+        <div class="search">
+
+        </div>
+        <div class="listedate">
+
+        </div>
+        <div class="action">
+
+        </div>
+    </section>
+
+    <section class="main">
+        <table>
+            <thead>
+
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </section>
+</main>
+
+{% endblock %} */

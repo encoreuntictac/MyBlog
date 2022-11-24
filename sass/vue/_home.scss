@@ -1,79 +1,139 @@
 @use '../abstracts' as *;
 
 
-:where(.wrapper-articles) {
-    height: 100%;
-}
-:where(.wrapper-articles .topbar) {
-    display: flex;
-    height: 148.5px;
-    border-bottom: 1px solid black;
-    padding: 2.5rem;
-    gap: 2rem;
-}
-:where(.wrapper-articles .topbar .search) {
-    width: 20%;
-
-    :where(input[type="search"]) {
+:where(.main-content .container) {
+    overflow: hidden;
+    iframe {
         width: 100%;
-        border-radius: 20px;
-        border: solid 1px rgb(147, 142, 142);
-        padding: .5rem 1rem;
+        height: 110%;
     }
 }
-:where(.wrapper-articles .topbar .action) {
-    margin-left: auto;
-}
 
-:where(.wrapper-articles .main) {
-    background-color: rgba(196, 196, 196, 0.568);
-    padding: 2.5rem;
-    height: calc(100% - 148.5px);
-}
-:where(.wrapper-articles .main table) {
-    width: 100%;
-    border-spacing: 0;
-    text-align: left;
-}
-:where(.wrapper-articles .main th) {
-    background-color: $bg-clr-black;
-    color: red;
-    padding: 1.5rem 1rem;
-    font-family: 'Times New Roman', Times, serif;
-}
-:where(.wrapper-articles .main th:nth-child(2)) 
-{
-    :where(select)
-    {
+
+:where(.home-header) {
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+    align-items: center;
+    height: 100%;
+
+    :where(div) {
+        display: flex;
+        gap: 2rem;
+    }
+    :where(.form-search) {
+        display: flex;
+        gap: 1rem;
+    }
+
+    :where(select) {
+        border-radius: 5px;
+        padding: .5rem;
         border: none;
-        font-size: 16px;
+        // font-size: 16px;
         color: white;
         background-color: black;
     }
-    
-}
+    :where(.btn-search) {
+        border-radius: 5px;
+        padding: .5rem 1rem;
+        border: none;
+        // font-size: 16px;
+        color: white;
+        background-color: black;
+    }
+    :where(.btn-add) {
+        border-radius: 5px;
+        padding: .5rem 1.5rem;
+        border: none;
+        // font-size: 16px;
+        color: white;
+        background-color: rgb(0, 0, 0); 
 
-:where(.wrapper-articles .main td) {
-    background-color: $bg-clr-white;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.487);
-    padding: 1rem;
-
-    :where(a)
-    {
-        color: black;
+        :where(a) {
+            color: white;
+        }
+    }
+    :where(.btn-select) {
+        border-radius: 5px;
+        padding: .5rem 1.5rem;
+        border: none;
+        // font-size: 16px;
+        color: rgb(0, 0, 0);
+        background-color: $clr-titre;
+    }
+    :where(input[type="search"]) {
+        border-radius: 20px;
+        border: solid 1px rgb(147, 142, 142);
+        padding: .5rem 1rem;
+        width: 250px;
     }
 }
-:where(.wrapper-articles .main .btn-edit) {
-    margin: auto;
-    text-align: center;
-}
-:where(.wrapper-articles .main .btn-edit button) {
-    font-weight: 600;
-    letter-spacing: 1px;
-    border: solid 1px black;
-    background-color: $clr-titre;
-    border-radius: 5px;
-    padding: .5rem 2rem;
-    margin: auto;
-    cursor: pointer;
+
+:where(.home-body) {
+    height: 100%;
+    padding: 1rem;
+
+    :where(table) {
+        width: 100%;
+        color: white;
+        border-radius: 1rem 1rem 0 0;
+        border-spacing: 0;
+    }
+
+    :where(thead) {
+        background-color: black;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        :where(th) {
+            padding: .5rem 1rem;
+        }
+        :where(th:first-child) {
+            border-radius: 1rem 0 0 0;
+        }
+        :where(th:last-child) {
+            text-align: center;
+            border-radius: 0 1rem 0 0;
+        }
+    }
+    :where(tbody) {
+        background-color: white;
+        color: black;
+
+        :where(td) {
+            padding: 1rem;
+            border-bottom: 1px rgba(128, 128, 128, 0.505) solid;
+        }
+        :where(td:first-child) {
+            border-left: 1px rgba(128, 128, 128, 0.505) solid;
+        }
+        :where(td:last-child) {
+            width: 260px;
+            border-right: 1px rgba(128, 128, 128, 0.505) solid;
+        }
+        :where(.btn-edit) {
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: solid 1px black;
+            background-color: $clr-titre;
+            border-radius: 5px;
+            padding: .5rem 2rem;
+            margin: auto;
+            cursor: pointer;
+        }
+        :where(.btn-delete) {
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: solid 1px black;
+            background-color:  #99001C;
+            border-radius: 5px;
+            padding: .5rem 2rem;
+            margin: auto;
+            cursor: pointer;
+        }
+        a {
+            color: black;
+        }
+    }
+
 }
