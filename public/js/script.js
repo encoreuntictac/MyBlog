@@ -1,9 +1,22 @@
-const BTN_EXTEND = document.querySelector('#btn-extend');
+const BTN_SIDEBAR = document.querySelector('#btn-sidebar');
 const SIDEBAR = document.querySelector('#sidebar');
+const NAVBAR= document.querySelector('#navbar');
 
-BTN_EXTEND.addEventListener('click', event => {
-    SIDEBAR.classList.toggle('active');
+BTN_SIDEBAR.addEventListener('click', event => {
+    SIDEBAR.classList.toggle('close');
+    NAVBAR.classList.toggle('close');
 });
+
+const BTN_NAVBAR = document.querySelector('#btn-navbar');
+const NAVBAR_SUB = document.querySelector('#navbar-sub');
+
+BTN_NAVBAR.addEventListener('click', event => {
+    BTN_NAVBAR.classList.toggle('rotate');
+    NAVBAR_SUB.classList.toggle('show-menu');
+});
+
+
+
 
 
 

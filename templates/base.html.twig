@@ -15,47 +15,67 @@
     </head>
 
     <body>
-        <section class="base">
+        <section class="page-base">
             <div class="container {% if app.request.attributes.get('_route') == 'edit_article' %}edit-page{% endif %}">
             
                 <div class="wrapper">
 
                     <div class="sidebar" id="sidebar">
-                        <div class="sidebar__top">
-                            <div class="content">
-                                <div class="btn-extend" id="btn-extend">
-                                    <img class="icone" src="{{ asset('images/contenu/fleche.png') }}">
-                                </div>
-                                
-                                <div class="logo">
-                                    <div>
-                                        <a href="{{ path('show_home') }}"><img class="logo-img" src="{{ asset('images/contenu/blog.jpeg') }}"></a>
-                                    </div>
-                                    <p>Blog</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidebar__bottom">
-                            <div class="box-input">
+
+                        <div class="sidebar-top">
+
+                            <div class="sidebar-logo">
                                 <div>
-                                    <h1>A</h1>
+                                    <a href="{{ path('show_home') }}"><img class="logo-img" src="{{ asset('images/contenu/blog.jpeg') }}"></a>
                                 </div>
-                            </div>  
+                                <h2>Blog</h2>
+                                <button id="btn-sidebar"><img src="{{ asset('images/contenu/down.png') }}"></button>
+                            </div>
+
+                            <nav class="navbar" id="navbar">
+                                <ul class="navbar__container">
+                                    <li class="navbar__content">
+                                        <div class="navbar__item">
+                                            <a class="nav-img" href="#">
+                                                <img src="{{ asset('images/contenu/dashboard.png') }}">
+                                            </a>
+                                            <div class="navbar-categ">
+                                                Dashboard
+                                            </div>
+                                        </div>
+                                        <div class="navbar-sub">
+                                            <span>Dashboard</span>
+                                        </div>
+                                    </li>
+                                    <li class="navbar__content">
+                                        <div class="navbar__item">
+                                            <a class="nav-img" href="#">
+                                                <img src="{{ asset('images/contenu/square.png') }}">
+                                            </a>
+                                            <div class="navbar-categ">
+                                                Category
+                                                <img id="btn-navbar" src="{{ asset('images/contenu/chevron.png') }}">
+                                            </div>
+                                        </div>
+                                        <div class="navbar-sub" id="navbar-sub">
+                                            <span>Category</span>
+                                            <span>Articles</span>
+                                            <span>Clients</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
+
                         </div>
+
                     </div>
 
-                    <div class="box">
+                    <div class="main-box">
 
-                        <div class="box-top">
+                        <div class="container">
 
-                        </div>
-
-                        <div class="box-qst">
-                            {% block header %}{% endblock %}
-                        </div>
-
-                        <div class="box-content">
                             {% block body %}{% endblock %}
+
                         </div>
 
                     </div>

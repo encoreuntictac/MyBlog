@@ -1,29 +1,45 @@
 @use '../abstracts' as *;
 
-body {
+:where(body) {
     background-color: $bg-clr-black;
 }
-.base {
-    :where(.container) {
+:where(.page-base) {
+    border-color: $border--black;
+
+    :where(& > .container) {
         background-color: $bg-clr-white;
     }
 }
-.sidebar.active {
-    :where(.sidebar__top) {
-    
-        :where(p) {
-            color: $clr-titre;
-        }
-    }
-}
-:where(.sidebar__top) {
-    background-color: $bg-clr-100;
 
-    :where(p) {
-        color: $bg-clr-100;
-    }
+:where(.sidebar) {
+
 }
-:where(.sidebar__bottom) {
+:where(.sidebar-top) {
+    :where(.sidebar-logo) {
+        background-color: $bg-clr-black-variant-1;
+        color: $clr-titre;
+    }
+
+}
+
+:where(.navbar) {
     background-color: $bg-clr-black;
     color: $clr-text;
+
+    :where(.navbar__container) {
+        // background-color: $bg-clr-black;
+    }
+    :where(.navbar__content:hover) {
+        :where(.navbar__item) {
+            background-color: $bg-clr-black-variant-1;
+            border-left: 5px solid $clr-titre;
+        }
+    }
+    :where(.navbar__content:last-child) {
+        // background-color: rgb(238, 0, 255);
+    }
+
+    :where(.navbar-sub) {
+        background-color: $bg-clr-black-variant-1;        
+    }
 }

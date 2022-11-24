@@ -7,3 +7,76 @@
     {{ test }}
 
 {% endblock %}
+
+
+
+
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<main class="wrapper-articles">
+    <section class="topbar">
+        <div class="search">
+            <form action="{{ path('search') }}" method="post">
+                <input type="search" name="search" placeholder="Search">
+                <button>
+                    Rechercher
+                </button>
+            </form>
+        </div>
+        <div class="listedate">
+
+        </div>
+        <div class="action">
+            <button>
+                <a href="{{ path('new_article') }}">Ajouter un articles</a>
+            </button>
+        </div>
+    </section>
+    
+    <section class="main">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom Articles</th>
+                    <th>
+                        <form action="{{ path('selectYear') }}" method="post">
+                            <select name="annee" id="annee-select">
+                                {% for item in annee %}
+                                    <option value="{{item }}">{{item}}</option>
+                                {% endfor %}
+                            </select>
+                            <button class=btn-edit>
+                                Editer
+                            </button>
+                        </form>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in articles %}
+                    <tr>
+                        <td><a href="{{ path('show_article', {id: item.id}) }}">{{ item.titre() }}</a></td>
+                        <td>{{ item.getDate()|date("Y") }}</td>
+                        <td>{{ item.id }}</td>
+                        <td class="btn-edit">
+                            <button>
+                                <a href="{{ path('edit_article', {id: item.id, titre: item.titre}) }}">Edit</a>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</main>
+
+{% endblock %}

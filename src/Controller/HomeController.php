@@ -70,7 +70,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/home{year}', name: 'show_articleByYear')]
+    /* #[Route('/home{year}', name: 'show_articleByYear')]
     public function show_articleByYear($year, EntityManagerInterface $entityManager): Response
     {
         $repository = $entityManager->getRepository(Articles::class);
@@ -119,6 +119,7 @@ class HomeController extends AbstractController
     #[Route('/home/{id}', name: 'show_article')]
     public function show(Articles $articles): Response
     {
+        dd('test');
         return $this->render('home/show.html.twig', [
             'articles' => $articles,
         ]);
@@ -151,14 +152,14 @@ class HomeController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($articles);
             $entityManager->flush();
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('show_home');
         }
 
         return $this->render('home/new.article.html.twig', [
             'articles' => $articles,
             'form' => $form->createView(),
         ]);
-    }
+    } */
 
    /*  #[Route('/home/articles/year/{year}', name: 'year_article')]
     public function year(Request $request, EntityManagerInterface $entityManager): Response
